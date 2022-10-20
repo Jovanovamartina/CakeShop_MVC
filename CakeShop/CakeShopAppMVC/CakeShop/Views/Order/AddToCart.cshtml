@@ -1,0 +1,33 @@
+﻿@using CakeShop.ViewModels
+@model OrderViewModel
+
+<div class="add-new-cake-form">
+    <h1 class="display-6">Add your personal information</h1>
+<form asp-action="SaveOrder" asp-controller="Order" method="post">
+    <input type="hidden" asp-for="CartId" value="@Model.CartId"/>
+    <input type="hidden" asp-for="Date" value="@DateTime.Now"/>
+     <div class="form-group">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" class="form-control" />
+            <span class="text-danger" asp-validation-for="Name"></span>
+     </div>
+     <div class="form-group">
+            <label asp-for="LastName"></label>
+            <input asp-for="LastName" class="form-control" />
+            <span class="text-danger" asp-validation-for="LastName"></span>
+     </div>
+    <div class="form-group">
+        <label asp-for="Address"></label>
+        <input asp-for="Address " class="form-control" />
+        <span class="text-danger" asp-validation-for="Address"></span>
+    </div>
+    <br />
+  <div class="location-order">
+    <select asp-for="@Model.LocationId" asp-items="@(IEnumerable<SelectListItem>) ViewBag.Locations" class="btn btn-dark dropdown-toggle text-white">
+        <option>--Select--</option>
+    </select>
+       <span class="text-danger" asp-validation-for="Location">Required</span>
+  </div>
+     <button type="submit" class="btn btn-dark mx-3 float-end">Save</button>
+</form>
+</div>

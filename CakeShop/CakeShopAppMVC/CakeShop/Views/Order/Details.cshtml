@@ -1,0 +1,47 @@
+﻿@using CakeShop.ViewModels
+@using System.Globalization
+@model OrderViewModel
+
+<h1>Order #@Model.Id <span class="h4 text-muted">@Model.Location.Address</span> <span class="h6 text-muted">@Model.Date.ToShortDateString()</span></h1>
+<td><a asp-action="ConfirmDelivery" asp-controller="Order" asp-route-id="@Model.Id" class="btn btn-success">Confirm Delivery</a></td>
+<hr>
+<h5>Delivery Status: </h5>
+                @{
+                    if (Model.IsDelivered)
+                    {
+                        <td>Delivered</td>
+                    }
+                    else
+                    {
+                        <td>Not Delivered</td>
+                    }
+                }
+<h4>Personal Information</h4>
+<h5 class="text-muted">First Name: @Model.Name</h5>
+<h5 class="text-muted">Last Name: @Model.LastName</h5>
+<h5 class="text-muted">Address: @Model.Address</h5>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Product </th>
+      <th>Quantity </th>
+      <th>Subtotal </th>
+    </tr>
+  </thead>
+  <tbody>
+        @foreach (var item in Model.Cart.CakeOrders)
+        {
+            <tr>
+              <td class="text-black">@item.Cake.Name  
+                  </td>
+                 
+              <td>@item.Quantity</td>
+              <td>@item.Price.ToString("C", CultureInfo.CreateSpecificCulture("mk-MK"))</td>
+            </tr>
+        }
+  
+  </tbody>
+</table>
+
+
+  

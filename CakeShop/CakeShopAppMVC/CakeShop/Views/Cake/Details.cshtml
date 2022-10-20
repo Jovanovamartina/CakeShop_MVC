@@ -1,0 +1,26 @@
+﻿@using CakeShop.ViewModels
+@using System.Globalization
+@model CakeViewModel
+
+<div class="cake-details-page">
+    <div class="card cake-details shadow-lg bg-white rounded" style="width: 50rem">
+      <img src="@Model.Image" class="card-img-top" alt="...">
+         <div class="card-body shadow-lg bg-white rounded">
+            <h3 class="card-title">@Model.Name</h3>
+                <p class="card-text">Price: @Model.Price.ToString("C", CultureInfo.CreateSpecificCulture("mk-MK"))</p>
+                <h5>Description:</h5>
+                  <h5 class="text-justify text-muted">@Model.Description</h5>
+                <h6>Ingridients:</h6>
+                <p>@Model.Ingredients</p>
+           
+                     <a asp-action="Index" asp-controller="Cake" class="btn btn-primary">Go Back</a>
+                      <a asp-action="GetCakeOrder" asp-controller="Order" asp-route-id="@Model.Id" class="btn btn-primary">Order</a>
+                
+         </div>
+    </div>   
+
+</div>
+ 
+  
+
+

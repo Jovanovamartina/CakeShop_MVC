@@ -1,0 +1,55 @@
+﻿@using CakeShop.ViewModels
+@model CakeViewModel
+
+<div class="add-new-cake-form" >
+<form asp-action="AddOrEditCakeMenu" asp-controller="Cake" method="post">
+    <h1 class="display-6 mx-2">Add New Cake</h1>
+     <div >
+         <label asp-for="Image" class="form-label"></label>
+        <input asp-for="Image" class="form-control" />
+        <span asp-validation-for="Image" class="text-danger"></span>
+    </div>
+     <input type="hidden" asp-for="Id" />
+     <div class="form-group mt-3 mx-4">
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+   
+           
+      <div class="input-forms mx-4">
+     @{
+                if (Model.Price != 0)
+                {
+                    <div class="form-group">
+                      <label asp-for="Price" class="form-label"></label>
+                      <input type="number" asp-for="Price" class="form-control" value="@Model.Price"/>
+                    </div>
+                }
+                else
+                {
+                     <div class="form-group">
+                      <label asp-for="Price" class="form-label"></label>
+                      <input type="number" asp-for="Price" class="form-control" value="100"/>
+                    </div>
+                }
+            }
+ 
+    </div>
+       <div class="form-group mx-4">
+         <label asp-for="Description" class="form-label"></label>
+        <input asp-for="Description" class="form-control" />
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+      <div class="form-group mx-4">
+         <label asp-for="Ingredients" class="form-label"></label>
+        <input asp-for="Ingredients" class="form-control" />
+        <span asp-validation-for="Ingredients" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-secondary float-end">Save</button>
+</form>
+
+</div>
+

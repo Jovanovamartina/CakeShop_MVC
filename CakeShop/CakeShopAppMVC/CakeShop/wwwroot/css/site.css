@@ -1,0 +1,219 @@
+
+
+html {
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+
+
+body {
+    margin-bottom: 60px;
+    background-color: #cfbfae3b;
+}
+
+@media (max-width : 760px) {
+    .burger-details {
+        display: flex;
+        flex-wrap: wrap;
+        width: 20rem
+    }
+
+    .order-table {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+.card {
+    width: 15em;
+}
+
+.cards {
+    display: flex;
+    align-content: stretch;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 2em;
+    justify-content: center;
+    
+}
+
+.index-page {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    flex-wrap: wrap;
+}
+
+.checkbox-input {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-around;
+    margin-top: 1em;
+}
+
+.form-cakes {
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1em;
+    margin-bottom: 10em;
+}
+
+img {
+    height: 10em;
+}
+
+
+
+.form-cart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.quantity-form {
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.location-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2em;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5em;
+}
+
+.order-details {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2em;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1em;
+}
+
+.home-page {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2em;
+    justify-content: space-evenly;
+}
+
+.time-inputs {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-top: 1em;
+    width: 10em;
+}
+
+.form-search {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.form-floating {
+    display: flex;
+    gap: 0.2em;
+}
+
+
+
+.cake-details-page {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cake-details {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.add-new-cake-form {
+    background-image: url("https://static.vecteezy.com/system/resources/previews/000/119/108/non_2x/plain-dirty-grunge-background-vector.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 3rem;
+}
+
+.input-forms {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+
+
+.location-order {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.search-option {
+    display: flex;
+    gap: 1em;
+    float: right;
+}
+.home-page{
+    font-size:30px;
+    text-align:center;
+    font-weight:800;
+}
+
+.nav-item{
+    font-size:20px;
+    font-weight:500;
+  
+}
+.navbar-collapse{
+   
+    width:2000px;
+}
+
+
+
+
+
+
+
+

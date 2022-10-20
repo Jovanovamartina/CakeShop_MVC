@@ -1,0 +1,41 @@
+﻿@using CakeShop.ViewModels
+@model List<LocationViewModel>
+
+
+
+<div class="location-page">
+
+    <div class="cards">
+        @foreach (var item in Model)
+        {
+            <div class="card mb-6 shadow-lg bg-white rounded mt-5">
+                <img src="@item.Image" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">@item.Name</h5>
+                    <p class="card-text"><small class="text-muted">Address: @item.Address</small></p>
+                    <p class="card-text"><small class="text-muted">Working Hours: @item.OpenAt.ToString("HH:mm") - @item.CloseAt.ToString("HH:mm")</small></p>
+                    <div class="buttons">
+                        <form asp-action="DeleteLocation" asp-controller="Location" asp-route-id="@item.Id">
+                            <div class="btn-group btn-group-sm">
+                                <a asp-action="EditOrAddLocation" asp-route-id="@item.Id" class="btn btn-warning">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </a>
+                                <button type="submit" class="btn btn-danger"
+                                    onclick="return confirm('Are you sure to delete this record?')">
+                                    <i class="far fa-trash-alt"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        }
+    </div>
+</div>
+</br>
+<div class="buttons">
+    <a asp-action="EditOrAddLocation" asp-controller="Location" class="btn btn-sm btn-success">
+        <i class="fa-solid fa-plus"></i> Add a new Location
+    </a>
+</div>

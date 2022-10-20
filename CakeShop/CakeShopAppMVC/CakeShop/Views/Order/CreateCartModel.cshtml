@@ -1,0 +1,79 @@
+﻿@using CakeShop.ViewModels
+@using System.Globalization
+@model CartViewModel
+
+<form asp-action="AddToCart" asp-controller="Order" method="post">
+    <input type="hidden" asp-for="Id" />
+    <div class="form-cart">
+        <h1>Cakes</h1>
+
+        <div class="form-cakes">
+            @{
+                List<CakeViewModel> cakes = ViewBag.CakeViewModels;
+            }
+
+            @for (int i = 0; i < Model.CakeOrders.Count; i++)
+            {
+
+                <input type="hidden" asp-for="@Model.CakeOrders[i].CakeId" value="@Model.CakeOrders[i].CakeId" />
+                <div class="card shadow-lg bg-white rounded mt-5">
+                    <div class="product-card h-100">
+                        <img src="@Model.CakeOrders[i].Cake.Image" class="card-img-top" alt="...">
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <h5 class="card-title">@Model.CakeOrders[i].Cake.Name</h5>
+                                <p class="card-text">Price: @Model.CakeOrders[i].Cake.Price.ToString("C", CultureInfo.CreateSpecificCulture("mk-MK"))</p>
+                                <div class="checkbox-input">
+                                    <input asp-for="@Model.CakeOrderCheckbox[i].CakeId" value="@Model.CakeOrders[i].CakeId" type="hidden"/>
+                                    <label asp-for="@Model.CakeOrders[i].Selected">Add To Cart</label>
+                                    <input asp-for="@Model.CakeOrders[i].Selected" type="checkbox" value="true" class="form-check-input" />
+                                </div>
+                                <div class="quantity-form form-outline">
+                                    <label asp-for="@Model.CakeOrders[i].Quantity" class="form-label">Quantuty</label>
+                                    <input asp-for="@Model.CakeOrders[i].Quantity" type="number" min="1" value="1" />
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            @*
+            @for (int i = 0; i < cakes.Count; i++)
+            {
+
+                <input type="hidden" asp-for="@Model.CakeOrderCheckbox[i].CakeId" value="@cakes[i].Id" />
+                <div class="card shadow-lg bg-white rounded mt-5">
+                    <div class="product-card h-100">
+                        <img src="@cakes[i].Image" class="card-img-top" alt="...">
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <h5 class="card-title">@cakes[i].Name</h5>
+                                <p class="card-text">Price: @cakes[i].Price.ToString("C", CultureInfo.CreateSpecificCulture("mk-MK"))</p>
+                                <div class="checkbox-input">
+                                    <label asp-for="@Model.CakeOrderCheckbox[i].Selected" class="form-check-label">Add To Cart</label>
+                                    <input asp-for="@Model.CakeOrderCheckbox[i].Selected" type="checkbox" value="true" class="form-check-input" />
+                                </div>
+                                <div class="quantity-form form-outline">
+                                    <label asp-for="@Model.CakeOrderCheckbox[i].Quantity" class="form-label">Quantuty</label>
+                                    <input asp-for="@Model.CakeOrderCheckbox[i].Quantity" type="number" value="1" min="1" />
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            }
+
+            *@
+        </div>
+
+
+    </div>
+    <br />
+    <button type="submit" class="btn btn-outline-dark">Make your order</button>
+
+</form>
